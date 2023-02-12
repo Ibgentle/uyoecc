@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+	<head>
+		<title>Generate Timetable</title>
+		<script type="text/javascript">
+			function add_name(form){
+				let this_shift = [];
+				this_shift.append(
+					form.names.values.split(","));
+				document.write(this_shift);
+			}
+		</script>
+	</head>
+	<body>
+		<h3>A simple page for generating timetables</h3>
+		<hr/>
+		<div>
+			<form name="formA" method="POST" action="">
+				{{ form1.as_div }}
+			</form>
+			<button type="button" 
+				onclick="add_name(formA)">ADD
+			</button>
+
+		</div>
+
+	</body>
+</html>

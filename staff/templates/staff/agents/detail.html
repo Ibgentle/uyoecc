@@ -1,0 +1,19 @@
+{% extends "staff/base.html" %}
+
+{% load static %}
+
+{% block title %}agent.first_name{% endblock %}
+
+{% block content %}
+
+	<div style="float:left; width:20%; height:20%"><img src="{% static 
+		    "pictures/" %}" />{{ agent.photo }}
+	</div>
+
+	<div style="float;left; width:80%">
+		<p>{{ agent.first_name }} {{ agent.last_name }}</p>
+		<h4>ABOUT <em>{{ agent.nickname }}</em></h4>
+		<hr style='margin-top:0%'/>
+		<p>{{ agent.about_me }}</p>
+	</div>
+{% endblock %}

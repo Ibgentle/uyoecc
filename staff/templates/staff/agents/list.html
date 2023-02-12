@@ -1,0 +1,41 @@
+{% extends 'staff/base.html' %}
+
+{% block title %}Call Agents{% endblock %}
+
+{% block content %}
+	
+	<h3>Uyo ECC Call Agents</h3>
+	<table border="2" cellpadding="4" cellspacing="2" width="150%">
+		<tr>
+			<th>First name</th>
+			<th style="width:15%">Last name</th>
+			<th>Nickname</th>
+			<th style="width:15%">Gender</th>
+			<th style="width:15%">Email address</th>
+			<th>Hobbies</th>
+			<th>Favourite food</th>
+		</tr>
+
+		{% for agent in agents %}
+
+		<tr style='text-align:center;'>
+			<td><a style="text-decoration:none; font-weight:bold" 
+				href="{% url 'staff:agent_detail' agent.id %}">
+				{{ agent.first_name }}</a>
+			</td>
+			<td>{{ agent.last_name }}</td>
+			<td>{{ agent.nickname }}</td>
+			<td>{{ agent.gender }}</td>
+			<td>{{ agent.email_address }}</td>
+			<td>{{ agent.hobbies }}</td>
+			<td>{{ agent.favourite_food }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<p style="font-weight:bold">Click on the agent's first name know more about him/her.</p>
+
+{% endblock %}
+
+
+
+
