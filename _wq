@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang='en-US'>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<link href="{% static "css/styles.css" %}" rel="stylesheet">
+	</head>
+
+	<body>
+		<div id="nav">
+			<ul>
+				<li><a href="#">Mission</a></li>
+				<li><a href="#">History</a></li>
+				<li><a href="agents/list.html">The Agents</a></li>
+				<li><a href="management/list.html">Management</a>
+					<ul>
+					<li><a href="#">&raquo;Center Manager</a>
+					<li><a href="#">&raquo;Supervisory</a>
+					<li><a href="#">&raquo;Technical</a>
+					</ul>
+				</li>
+				<li><a href="#">Other staff</a></li>
+			</ul>
+		</div>
+
+		<div id="content" style='width:55%; margin-left:5%; margin-right:10%'>
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

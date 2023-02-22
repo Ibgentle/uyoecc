@@ -1,8 +1,7 @@
 from django import forms
 
 class TimetableForm(forms.Form):
-    off_day_choices = [('Mon', 'Monday'), ('Tue', 'Tuesday'),
-            ('Wed', 'Wednesday'), ('Thu', 'Thursday'),
+    off_day_choices = [('Thu', 'Thursday'),
             ('Fri', 'Friday'), ('Sat', 'Saturday'),
             ('Sun', 'Sunday')]
 
