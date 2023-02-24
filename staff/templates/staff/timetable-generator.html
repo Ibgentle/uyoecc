@@ -12,7 +12,8 @@
 			let saturday = [];
 			saturday.name = "Sat";
 			let sunday = [];
-			sunday.name = "Sun"
+			sunday.name = "Sun";
+
 			function addName(form, div){
 				let agent = form.names.value;
                         	let offDay = form.off_day.value;
@@ -40,6 +41,7 @@
 						"Please select off day.");
 				}
 			}
+			
 			function removeName(form, div){
 				let agent = form.names.value;
 				if (form == document.formA){
@@ -74,6 +76,28 @@
 					row.appendChild(cell);
 				}
 				tblBody.appendChild(row);
+				
+				let row1 = document.createElement('tr');
+				let cell1 = document.createElement('td');
+				let cell2 = document.createElement('td');
+				for (let i = 0; i < morningShift.length; i++){
+					let cellText = document.createTextNode(morningShift[i]);
+					let el = document.createElement('p');
+					cell1.appendChild(cellText);
+					cell1.appendChild(el);
+				}
+				row1.appendChild(cell1);
+				
+				for (let j = 0; j < afternoonShift.length; j++){
+                                        let cellText = document.createTextNode(afternoonShift[j]);
+					let el = document.createElement('p');
+                                        cell2.appendChild(cellText);
+                                        cell2.appendChild(el);
+                                }
+				row1.appendChild(cell2);
+
+				tblBody.appendChild(row1);
+
 				tbl.appendChild(tblBody);
 				tbl.setAttribute('border', '2');
 				tbl.setAttribute('cellpadding', '5');
@@ -104,7 +128,7 @@
 		</div>
 		<div style="margin-left:10%; margin-top:5%; float:left">
 			<button type="button" style="font-weight:bold" onclick=
-				"generateTimetable(document.getElementById('ttbldiv'));">
+				"generateTimetable(morningShift, afternoonShift);">
 			Click here to generate the Timetable</button>
 		</div>
 		<div id="afternoon" style="float:right; margin-right:10%;">
