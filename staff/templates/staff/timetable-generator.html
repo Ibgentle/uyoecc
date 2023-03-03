@@ -69,6 +69,16 @@
 				const tbl = document.createElement('table');
 				const tblBody = document.createElement('tbody');
 				const morning = document.createElement('tr');
+				const afternoon = document.createElement('tr');
+				const weekdayRow = document.createElement('tr');
+
+                                const morningRow = document.createElement('tr');
+                                const afternoonRow = document.createElement('tr');
+                                const morningNames = document.createElement('td');
+                                const afternoonNames = document.createElement('td');
+
+				
+				// Add a row that shows it's the morning shift
 				for (let i = 0; i < weekday.length; i++){
 					let morningCell = document.createElement('td');
 					let morningCellText = document.createTextNode('Morning');
@@ -76,36 +86,48 @@
 					morning.appendChild(morningCell);
 					morningCell.style.color = 'blue';
 				}
-				let row = document.createElement('tr');
-				for (let i = 0; i < weekday.length; i++){
-					let cell = document.createElement('td');
-					let cellText = document.createTextNode(weekday[i]);
-					cell.appendChild(cellText);
-					row.appendChild(cell);
-				}
-				tblBody.appendChild(row);
-				tblBody.appendChild(morning);
 				
-				let row1 = document.createElement('tr');
-				let cell1 = document.createElement('td');
-				let cell2 = document.createElement('td');
+				// Add a row that shows it's the afternoon shift
+				for (let i = 0; i < weekday.length; i++){
+					let afternoonCell = document.createElement('td');
+					let afternoonCellText = document.createTextNode('Afternoon');
+					afternoonCell.appendChild(afternoonCellText);
+					afternoon.appendChild(afternoonCell);
+					afternoonCell.style.color = 'red';
+				}
+
+				// Add a row to display the days of the week
+				for (let i = 0; i < weekday.length; i++){
+					let weekdayCell = document.createElement('td');
+					let weekdayCellText = document.createTextNode(weekday[i]);
+					weekdayCell.appendChild(weekdayCellText);
+					weekdayRow.appendChild(weekdayCell);
+				}
+
+				// Dispay agent mames for the morning shift
 				for (let i = 0; i < morningShift.length; i++){
 					let cellText = document.createTextNode(morningShift[i]);
 					let el = document.createElement('p');
-					cell1.appendChild(cellText);
-					cell1.appendChild(el);
+					morningNames.appendChild(cellText);
+					morningNames.appendChild(el);
 				}
-				row1.appendChild(cell1);
-				
-				for (let j = 0; j < afternoonShift.length; j++){
-                                        let cellText = document.createTextNode(afternoonShift[j]);
-					let el = document.createElement('p');
-                                        cell2.appendChild(cellText);
-                                        cell2.appendChild(el);
-                                }
-				row1.appendChild(cell2);
 
-				tblBody.appendChild(row1);
+				// Display agent names for the afternoon shift
+				for (let i = 0; i < afternoonShift.length; i++){
+                                        let cellText = document.createTextNode(afternoonShift[i]);
+					let el = document.createElement('p');
+                                        afternoonNames.appendChild(cellText);
+                                        afternoonNames.appendChild(el);
+                                }
+
+				morningRow.appendChild(morningNames);
+				morningRow.appendChild(afternoonNames);
+				afternoonRow.appendChild(afternoonNames);
+				afternoonRow.appendChild(morningNames);
+				
+				tblBody.appendChild(weekdayRow);
+                                tblBody.appendChild(morning);
+				tblBody.appendChild(morningRow);
 
 				tbl.appendChild(tblBody);
 				tbl.setAttribute('border', '2');
