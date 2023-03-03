@@ -68,6 +68,14 @@
 					'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
 				const tbl = document.createElement('table');
 				const tblBody = document.createElement('tbody');
+				const morning = document.createElement('tr');
+				for (let i = 0; i < weekday.length; i++){
+					let morningCell = document.createElement('td');
+					let morningCellText = document.createTextNode('Morning');
+					morningCell.appendChild(morningCellText);
+					morning.appendChild(morningCell);
+					morningCell.style.color = 'blue';
+				}
 				let row = document.createElement('tr');
 				for (let i = 0; i < weekday.length; i++){
 					let cell = document.createElement('td');
@@ -76,6 +84,7 @@
 					row.appendChild(cell);
 				}
 				tblBody.appendChild(row);
+				tblBody.appendChild(morning);
 				
 				let row1 = document.createElement('tr');
 				let cell1 = document.createElement('td');
@@ -101,7 +110,6 @@
 				tbl.appendChild(tblBody);
 				tbl.setAttribute('border', '2');
 				tbl.setAttribute('cellpadding', '5');
-				tbl.setAttribute('cellspacing', '10%');
 				tbl.setAttribute('width', '100%');
 				timetable.document.body.appendChild(tbl);
 
