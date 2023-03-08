@@ -5,6 +5,7 @@
 		<script type="text/javascript">
 			let morningShift = [];
 			let afternoonShift = [];
+			let allAgents = morningShift.concat(afternoonShift);
                         let thursday = [];
 			thursday.name = "Thu"
 			let friday = [];
@@ -13,7 +14,7 @@
 			saturday.name = "Sat";
 			let sunday = [];
 			sunday.name = "Sun";
-
+			
 			function addName(form, div){
 				let agent = form.names.value;
                         	let offDay = form.off_day.value;
@@ -41,6 +42,7 @@
 						"Please select off day.");
 				}
 			}
+
 			function removeName(form, div){
 				let agent = form.names.value;
 				if (form == document.formA){
@@ -59,6 +61,7 @@
 					}
 				}
 			}
+
 			function generateTimetable(morningShift, afternoonShift){
 				let timetable = window.open(
 					'', 'Timetable', 'toolbar=no,status=no');
@@ -110,14 +113,38 @@
 					afternoonNames.appendChild(nextLine);
 				}
 
+				let wedMorning = []; let wedAfternoon = [];
+				let thuMorning = []; let thuAfternoon = [];
+				let friMorning = []; let friAfternoon = [];
+				let satMorning = []; let satAfternoon = [];
+				let sunMorning = []; let sunAfternoon = [];
+
+				for (let i = 0; i < allAgents.length; i++){
+					if (thursday.includes(allAgents[i])){
+						wedMorning.push(allAgents[i]);
+					} else if (friday.includes(allAgents[i])){
+						thuMorning.push(allAgents[i]);
+					} else if (saturday.includes(allAgents[i])){
+						friMorning.push(allAgents[i]);
+					} else if (sunday.includes(allAgents[i])){
+						satMorning.push(allAgents[i]);
+					} else {
+						document.body.append('Agent not found.');
+					}
+				}
+
+
+					
+						
+
 				let morningCell1 = morningNames.cloneNode(true);
 				let morningCell2 = afternoonNames.cloneNode(true);
 
 				morningRow.appendChild(morningCell1);
 				morningRow.appendChild(morningCell2);
 
-				let afternoonCell1 = afternoonNames.cloneNode(true);
-				let afternoonCell2 = morningNames.cloneNode(true);
+				let afternoonCell1 = morningCell2.cloneNode(true);
+				let afternoonCell2 = morningCell1.cloneNode(true);
 
 				afternoonRow.appendChild(afternoonCell1);
 				afternoonRow.appendChild(afternoonCell2);
