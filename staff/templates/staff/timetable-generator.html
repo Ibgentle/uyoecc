@@ -134,14 +134,62 @@
 				}
 
 
-					
-						
+				let wedMorningNames = document.createElement('td');
+				for (let i = 0; i < wedMorning.length; i++){
+					let wedMorningCellText = document.createTextNode(wedMorning[i]);
+					let nextLine = document.createElement('p');
+					wedMorningNames.appendChild(wedMorningCellText);
+					wedMorningNames.appendChild(nextLine);
+				}
+
+				let thuMorningNames = document.createElement('td');
+				for (let i = 0; i < thuMorning.length; i++){
+					let thuMorningCellText = document.createTextNode(thuMorning[i]);
+					let nextLine = document.createElement('p');
+					thuMorningNames.appendChild(thuMorningCellText);
+					thuMorningNmaes.appendChild(nextLine);
+				}
+
+				let friMorningnames = document.createElement('td');
+				for (let i = 0; i < friMorning.length; i++){
+					let friMorningCellText = document.createTextNode(friMorning[i]);
+					let nextLine = document.createElement('p');
+					friMorningNames.appendChild(friMorningCellText);
+					friMorningNames.appendChild(nextLine);
+				}
+
+				let satMorningNames = document.createElement('td');
+				for (let i = 0; i < satMorning.length; i++){
+					let satMorningCelltext = document.createTextNode(satMorning[i]);
+					let nextLine = document.createElement('p');
+					satMorningNames.appendChild(satMorningCellText);
+					satMorningNames.appendChild(nextLine);
+				}
+
+				let sunMorningNames = document.createElement('td');
+				for (let i = 0; i < sunMorning.length; i++){
+					let sunMorningCellText = document.createTextNode(sunMorning[i]);
+					let nextLine = document.createElement('p');
+					sunMorningNames.appendChild(sunMorningCellText);
+					sunMorningNames.appendChild(nextLine);
+				}
+							
 
 				let morningCell1 = morningNames.cloneNode(true);
 				let morningCell2 = afternoonNames.cloneNode(true);
+				let morningCell3 = wedMorning.cloneNode(true);
+				let morningCell4 = thuMorning;
+				let morningCell5 = friMorning;
+				let morningCell6 = satMorning;
+				let morningCell7 = sunMorning;
 
 				morningRow.appendChild(morningCell1);
 				morningRow.appendChild(morningCell2);
+				morningRow.appendChild(morningCell3);
+				morningRow.appendChild(morningCell4);
+				morningRow.appendChild(morningCell5);
+				morningRow.appendChild(morningCell6);
+				morningRow.appendChild(morningCell7);
 
 				let afternoonCell1 = morningCell2.cloneNode(true);
 				let afternoonCell2 = morningCell1.cloneNode(true);
